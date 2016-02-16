@@ -33,3 +33,9 @@
 >  But you'll have to search the source code!
 >
 >  --- inspired by One Piece
+
+## License
+
+  Code released under [MIT](http://opensource.org/licenses/MIT)
+
+  Copyright (c) 2016 Matt

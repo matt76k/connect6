@@ -131,7 +131,7 @@ def loop(stdscr):
     board_win = stdscr.subwin(SIZE, stdscr_x, 0, 0)
     log = Log()
     board = Board()
-
+    players = [p1, p2]
     cboard = CBoard(board_win, board)
     game = Game(board, players)
 

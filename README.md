@@ -1,6 +1,6 @@
 # Connect6 competition
 
-## Gmae Rules
+## Game Rules
 
   The rules of Connect6 are very simple and as follows
 

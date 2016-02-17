@@ -50,7 +50,7 @@ class Log:
             return []
 
     def prevLog(self):
-        if self.cur > 0:
+        if self.cur > -1:
             r = self.series[self.cur]
             self.cur -= 1
             return r

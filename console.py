@@ -78,7 +78,7 @@ class Game:
     def firstMove(self):
         player = self.players[self.turn]
         x, y = player.firstMove()
-        self.board.putDown(x, y, player.color)
+        self.board.putDown(x, y, player.stone)
         self.__updateTurn()
         self.log.add([(x, y)])
 
@@ -86,8 +86,8 @@ class Game:
         if not self.isOver():
             player = self.players[self.turn]
             (x1, y1), (x2, y2) = player.move(self.board.board)
-            self.board.putDown(x1, y1, player.color)
-            self.board.putDown(x2, y2, player.color)
+            self.board.putDown(x1, y1, player.stone)
+            self.board.putDown(x2, y2, player.stone)
             self.__updateTurn()
             self.log.add([(x1, y1), (x2, y2)])
 
@@ -104,7 +104,7 @@ class Game:
         self.rewind(self.log.prevLog(), Empty)
 
     def nextStep(self):
-        self.rewind(self.log.nextLog(), self.players[self.turn].color)
+        self.rewind(self.log.nextLog(), self.players[self.turn].stone)
 
 
 def displayInfo(scr, s):

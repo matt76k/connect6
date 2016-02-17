@@ -79,7 +79,7 @@ class Game:
     def firstMove(self):
         player = self.players[self.turn]
         x, y = player.firstMove()
-        self.board.putDown(x, y, player.color)
+        self.board.putDown(x, y, player.stone)
         self.updateTurn()
         self.log.add([(x, y)])
 
@@ -87,8 +87,8 @@ class Game:
         if not self.isOver():
             player = self.players[self.turn]
             (x1, y1), (x2, y2) = player.move(self.board.board)
-            self.board.putDown(x1, y1, player.color)
-            self.board.putDown(x2, y2, player.color)
+            self.board.putDown(x1, y1, player.stone)
+            self.board.putDown(x2, y2, player.stone)
             self.updateTurn()
             self.log.add([(x1, y1), (x2, y2)])
 
@@ -105,7 +105,7 @@ class Game:
         self.rewind(self.log.prevLog(), Empty)
 
     def nextStep(self):
-        self.rewind(self.log.nextLog(), self.players[self.turn].color)
+        self.rewind(self.log.nextLog(), self.players[self.turn].stone)
 
 def displayInfo(scr, s):
     scr.move(SIZE + 1, 0)
@@ -162,7 +162,7 @@ def loop(stdscr):
                 if game.isOver() or game.board.board[ypos][xpos] != Empty:
                     continue
                 elif human == 0 and game.log.cur == -1:
-                    game.board.putDown(ypos, xpos, players[human].color)
+                    game.board.putDown(ypos, xpos, players[human].stone)
                     game.updateTurn()
                     game.log.add([(ypos, xpos)])
                     cboard.display()
@@ -170,14 +170,14 @@ def loop(stdscr):
 
                 elif len(moves) == 1:
                     moves.append((ypos, xpos))
-                    game.board.putDown(ypos, xpos, players[human].color)
+                    game.board.putDown(ypos, xpos, players[human].stone)
                     game.updateTurn()
                     game.log.add(moves)
                     moves = []
                     game.step()
                 else:
                     moves.append((ypos, xpos))
-                    game.board.putDown(ypos, xpos, players[human].color)
+                    game.board.putDown(ypos, xpos, players[human].stone)
             elif c in 'Pp':
                 game.prevStep()
                 game.prevStep()

@@ -4,6 +4,7 @@ import random
 class Player:
     def __init__(self, stone):
         self.stone = stone
+        self.opponent = - stone
 
     def firstMove(self):
         return (10, 10)
@@ -20,11 +21,3 @@ class RandomPlayer(Player):
         empty = self.collectEmpty(board)
         candidates = random.sample(empty, 2)
         return candidates
-
-class SmartRandomPlayer(Player):
-
-    def move(self, board):
-        empty = self.collectEmpty(board)
-        candidates = random.sample(empty, 2)
-        return candidates
-

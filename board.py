@@ -71,17 +71,17 @@ class Board:
 
     def __getDiagonalUp(self):
         lines = []
-        for i in range(1, SIZE - 1):
+        for i in range(6, SIZE - 1):
             lines.append(self.__getDiagonal(i, 1, -1, 1))
-        for i in range(2, SIZE - 1):
+        for i in range(2, SIZE - 6):
             lines.append(self.__getDiagonal(SIZE - 2, i, -1, 1))
         return lines
 
     def __getDiagonalDown(self):
         lines = []
-        for i in range(1, SIZE - 1):
+        for i in range(1, SIZE - 6):
            lines.append(self.__getDiagonal(i, 1, 1, 1))
-        for i in range(2, SIZE - 1):
+        for i in range(2, SIZE - 6):
             lines.append(self.__getDiagonal(1, i, 1, 1))
         return lines
 

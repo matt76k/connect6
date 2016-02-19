@@ -36,7 +36,7 @@ class Game:
         self.log = Log()
         self.turn = 0
 
-    def __updateTurn(self):
+    def updateTurn(self):
         self.turn = (self.turn + 1) % 2
 
     def reset(self):
@@ -51,7 +51,7 @@ class Game:
         player = self.players[self.turn]
         x, y = player.firstMove()
         self.board.putDown(x, y, player.stone)
-        self.__updateTurn()
+        self.updateTurn()
         self.log.add([(x, y)])
 
     def step(self):
@@ -60,7 +60,7 @@ class Game:
             (x1, y1), (x2, y2) = player.move(self.board.board)
             self.board.putDown(x1, y1, player.stone)
             self.board.putDown(x2, y2, player.stone)
-            self.__updateTurn()
+            self.updateTurn()
             self.log.add([(x1, y1), (x2, y2)])
 
     def isOver(self):
@@ -70,7 +70,7 @@ class Game:
         if len(logs) != 0:
             for (x, y) in logs:
                 self.board.putDown(x, y, stone)
-            self.__updateTurn()
+            self.updateTurn()
 
     def prevStep(self):
         self.rewind(self.log.prevLog(), Empty)

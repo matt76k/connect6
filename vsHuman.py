@@ -2,6 +2,7 @@ import curses
 from board import *
 from player import *
 from game import *
+from kami import *
 
 class CBoard:
 
@@ -56,7 +57,8 @@ def loop(stdscr):
 
     # if you want to play first, you set human to 0. otherwise you set human to 1
     human = 0
-    p1, p2 = RandomPlayer(B), RandomPlayer(W)
+    #p1, p2 = RandomPlayer(B), RandomPlayer(W)
+    p1, p2 = RandomPlayer(B), Kami(W)
 
     players = [p1, p2]
     cboard = CBoard(board_win, board)
@@ -72,7 +74,7 @@ def loop(stdscr):
         stdscr.move(ypos, xpos)
         displayPos(stdscr, ypos, xpos)
 
-        if human != 0 and game.log.cur == -1:
+        if human != 0 and game.isFirst():
             game.firstMove()
             cboard.display()
             stdscr.move(ypos, xpos)
@@ -84,7 +86,7 @@ def loop(stdscr):
             if c in ' \n':
                 if game.isOver() or game.board.board[ypos][xpos] != Empty:
                     continue
-                elif human == 0 and game.log.cur == -1:
+                elif human == 0 and game.isFirst():
                     game.board.putDown(ypos, xpos, players[human].stone)
                     game.updateTurn()
                     game.log.add([(ypos, xpos)])

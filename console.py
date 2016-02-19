@@ -71,7 +71,7 @@ def loop(stdscr):
                     game.step()
                     cboard.display()
             elif c in 'Ss':
-                if game.log.cur == -1:
+                if game.isFirst():
                     game.firstMove()
                 else:
                     game.step()

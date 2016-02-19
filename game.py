@@ -47,6 +47,9 @@ class Game:
         self.log = Log()
         self.turn = 0
 
+    def isFirst(self):
+        return self.log.cur == -1
+
     def firstMove(self):
         player = self.players[self.turn]
         x, y = player.firstMove()

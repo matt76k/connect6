@@ -7,7 +7,7 @@ class Board:
         self.board[x][y] = stone
 
     def isFull(self):
-        return all([i.count(Empty) for i in self.board])
+        return all([i.count(Empty) == 0 for i in self.board])
 
     def isGameOver(self):
         for i in self.__getHorizontal() + self.__getVertical() + self.__getDiagonalUp() + self.__getDiagonalDown():

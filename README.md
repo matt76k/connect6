@@ -23,6 +23,10 @@
 
   if you want to play with own program, you can use vsHuman.py
 
+## Create new Player
+
+  see player.py, read comments and the code of RandomPlayer.
+
 ## Documents
 
 >  Documents?
@@ -32,7 +36,7 @@
 >  It's yours if you can find it...
 >  But you'll have to search the source code!
 >
->  --- inspired by One Piece
+>  --- inspired by OnePiece
 
 ## License
 

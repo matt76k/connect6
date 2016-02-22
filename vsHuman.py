@@ -2,7 +2,6 @@ import curses
 from board import *
 from player import *
 from game import *
-from kami import *
 
 class CBoard:
 
@@ -57,8 +56,7 @@ def loop(stdscr):
 
     # if you want to play first, you set human to 0. otherwise you set human to 1
     human = 0
-    #p1, p2 = RandomPlayer(B), RandomPlayer(W)
-    p1, p2 = RandomPlayer(B), Kami(W)
+    p1, p2 = RandomPlayer(B), RandomPlayer(W)
 
     players = [p1, p2]
     cboard = CBoard(board_win, board)
